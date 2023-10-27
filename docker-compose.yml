@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+  kurobase:
+    build:
+      context: .
+    container_name: kurobase
+    restart: unless-stopped
+    ports:
+      - '3000:3000'
+    environment:
+      DATABASE_URL: postgres://postgres:postgres@kurobase-postgres:5432/kurobase?connection_limit=15&pool_timeout=0
+      DB_REDIS_URL: redis://kurobase-redis:6379
+    env_file:
+      - .env
+    depends_on:
+      - kurobase-postgres
+      - kurobase-redis
+    volumes:
+      - ./docker/.uploads:/app/uploads
+
+  kurobase-postgres:
+    image: ankane/pgvector:latest
+    container_name: kurobase-postgres
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: kurobase
+    volumes:
+      - ./docker/.postgres:/var/lib/postgresql/data
+
+  kurobase-redis:
+    image: redis:latest
+    container_name: kurobase-redis
+    restart: unless-stopped
+    ports:
+      - '6379:6379'
+    volumes:
+      - ./docker/.redis:/data
