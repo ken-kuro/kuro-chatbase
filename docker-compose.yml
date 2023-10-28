@@ -6,8 +6,6 @@ services:
       context: .
     container_name: kurobase
     restart: unless-stopped
-    ports:
-      - '3000:3000'
     environment:
       DATABASE_URL: postgres://postgres:postgres@kurobase-postgres:5432/kurobase?connection_limit=15&pool_timeout=0
       DB_REDIS_URL: redis://kurobase-redis:6379
@@ -23,8 +21,6 @@ services:
     image: ankane/pgvector:latest
     container_name: kurobase-postgres
     restart: unless-stopped
-    ports:
-      - '5432:5432'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -36,7 +32,11 @@ services:
     image: redis:latest
     container_name: kurobase-redis
     restart: unless-stopped
-    ports:
-      - '6379:6379'
     volumes:
       - ./docker/.redis:/data
+
+  cloudflared:
+    restart: unless-stopped
+    container_name: cloudflared-proxy
+    image: cloudflare/cloudflared:latest
+    command: tunnel --no-autoupdate run --token ${CLOUDFLARE_TOKEN}

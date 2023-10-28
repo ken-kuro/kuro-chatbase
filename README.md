@@ -1,2 +1,1 @@
 # kuro-chatbase
-# kuro-chatbase
