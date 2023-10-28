@@ -74,11 +74,11 @@ export default function BotForm({
               form.reset();
               await sendMessage(value.message);
             })}
-            className="shrink-0 flex-grow  flex items-center "
+            className="shrink-1 flex-grow  flex items-center "
           >
             <div className="relative w-full">
               <textarea
-                // style={{ height: "48px !important" }}
+                style={{ height: "48px !important" }}
                 disabled={isSending}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
@@ -90,7 +90,7 @@ export default function BotForm({
                     })();
                   }
                 }}
-                className="block w-full h-11 resize-none  appearance-none bg-white text-md text-gray-900 caret-blue-600 rounded-lg border-gray-300  pl-3 pr-24 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
+                className="block w-full h-11 resize-none  appearance-none bg-white text-md text-gray-900 caret-blue-600 rounded-lg border-gray-300  pl-3 pr-3 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
                 required
                 placeholder="Type your message…"
                 {...form.getInputProps("message")}
@@ -98,7 +98,7 @@ export default function BotForm({
               <div className="absolute flex items-center bottom-0.5 right-0.5">
                 <button
                   disabled={isSending}
-                  className="inline-flex items-center justify-center gap-2 text-sm font-semibold text-blue-600 shadow-sm transition-all duration-150 rounded-md border border-transparent p-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
+                  className="inline-flex h-11 items-center justify-center gap-2 text-sm font-semibold text-blue-600 shadow-sm transition-all duration-150 rounded-md border border-transparent p-2 focus:outline-none focus:ring-2 focus:ring-blue-600 focus:ring-offset-2"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
