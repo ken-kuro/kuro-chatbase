@@ -103,7 +103,7 @@ export const AppearancePreview = ({ form }: { form: FormInstance }) => {
                   </svg>
                 </button>
               </span>
-              <form className="shrink-0 flex-grow  flex items-center ">
+              <form className="flex-grow  flex items-center ">
                 <div className="relative w-full">
                   <textarea
                     className="block w-full h-11 resize-none  appearance-none bg-white text-md text-gray-900 caret-blue-600 rounded-lg border-gray-300  pl-3 pr-24 placeholder:text-gray-500 focus:outline-none focus:ring-1 focus:ring-blue-600 focus:border-blue-600"
