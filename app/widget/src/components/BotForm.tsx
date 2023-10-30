@@ -1,14 +1,10 @@
-import { useMutation } from "@tanstack/react-query";
-import { useMessage } from "../hooks/useMessage";
-import { useForm } from "@mantine/form";
-import { BotStyle } from "../utils/types";
+import {useMutation} from "@tanstack/react-query";
+import {useMessage} from "../hooks/useMessage";
+import {useForm} from "@mantine/form";
+import {BotStyle} from "../utils/types";
 
-export default function BotForm({
-    botStyle,
-}: {
-    botStyle: BotStyle
-}) {
-  const { onSubmit, setHistory, setMessages, resetChatId } = useMessage();
+export default function BotForm({botStyle,}: { botStyle: BotStyle }) {
+  const {onSubmit, setHistory, setMessages, resetChatId} = useMessage();
 
   const form = useForm({
     initialValues: {
@@ -17,7 +13,7 @@ export default function BotForm({
     },
   });
 
-  const { mutateAsync: sendMessage, isLoading: isSending } = useMutation(
+  const {mutateAsync: sendMessage, isLoading: isSending} = useMutation(
     onSubmit,
     {
       onSuccess: () => {
@@ -32,8 +28,45 @@ export default function BotForm({
       },
     }
   );
+
+  const suggestedQuestions = [
+    "What is your product's pricing?",
+    "How can I contact support?",
+    "What is your product's pricing?",
+    "How can I contact support?",
+    "Tell me more about your services",
+    "What is your product's pricing?",
+    "How can I contact support?",
+    "Tell me more about your services",
+    "What is your product's pricing?",
+    "How can I contact support?",
+    "Tell me more about your services",
+    "What is your product's pricing?",
+    "How can I contact support?",
+    "Tell me more about your services",
+    "Tell me more about your services",
+  ];
+
+  const handleSuggestionClick = async (suggestion: string) => {
+    form.reset();
+    await sendMessage(suggestion);
+  };
+
   return (
     <div className="p-3 border-t">
+      <div className="flex overflow-x-auto py-3">
+        <div>
+          {suggestedQuestions.map((question, index) => (
+            <button
+              key={index}
+              className="mr-1 mt-1  whitespace-nowrap rounded-xl py-2 px-3 text-sm   bg-zinc-100 hover:bg-zinc-200"
+              onClick={() => handleSuggestionClick(question)}
+            >
+              {question}
+            </button>
+          ))}
+        </div>
+      </div>
       <div className="flex-grow space-y-6">
         <div className="flex">
           <span className="mr-3">
@@ -74,11 +107,11 @@ export default function BotForm({
               form.reset();
               await sendMessage(value.message);
             })}
-            className="shrink-1 flex-grow  flex items-center "
+            className="flex-grow flex items-center "
           >
             <div className="relative w-full">
               <textarea
-                style={{ height: "48px !important" }}
+                style={{height: "48px !important"}}
                 disabled={isSending}
                 onKeyDown={(e) => {
                   if (e.key === "Enter" && !e.shiftKey) {
@@ -86,7 +119,6 @@ export default function BotForm({
                     form.onSubmit(async (value) => {
                       form.reset();
                       await sendMessage(value.message);
-                      // await sendMessage(value.message);
                     })();
                   }
                 }}
