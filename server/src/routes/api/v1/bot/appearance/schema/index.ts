@@ -54,6 +54,9 @@ export const saveBotAppearanceSchema: FastifySchema = {
       first_message: {
         type: "string",
       },
+      suggested_messages: {
+        type: "string",
+      },
     },
   },
 };

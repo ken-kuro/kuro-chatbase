@@ -4,6 +4,7 @@ CREATE TABLE "BotAppearance" (
   "bot_id" text NOT NULL,
   "bot_name" text NOT NULL,
   "first_message" text NOT NULL,
+  "suggested_messages" text NULL,
   "background_color" text NULL,
   "chat_bot_bubble_style" json NULL,
   "chat_human_bubble_style" json NULL
