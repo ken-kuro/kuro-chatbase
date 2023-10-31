@@ -12,5 +12,6 @@ export interface AppearanceType {
             text_color?: string;
         };
         first_message: string;
+        suggested_messages?: string;
     }
 }

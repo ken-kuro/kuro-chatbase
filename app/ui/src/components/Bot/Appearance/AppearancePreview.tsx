@@ -1,10 +1,12 @@
-import { FormInstance, Form } from "antd";
+import {FormInstance, Form} from "antd";
 
-export const AppearancePreview = ({ form }: { form: FormInstance }) => {
+export const AppearancePreview = ({form}: { form: FormInstance }) => {
   const botBubbleStyle = Form.useWatch("chat_bot_bubble_style", form);
   const humanBubbleStyle = Form.useWatch("chat_human_bubble_style", form);
   const botName = Form.useWatch("bot_name", form);
   const firstMessage = Form.useWatch("first_message", form);
+  const suggestedMessages: string = Form.useWatch("suggested_messages", form);
+  const suggestedQuestions = suggestedMessages?.split("\n") || [];
   return (
     <div
       style={{
@@ -80,6 +82,18 @@ export const AppearancePreview = ({ form }: { form: FormInstance }) => {
       </div>
       <div className="sticky bottom-0">
         <div className="p-3 border-t">
+          <div className="flex overflow-x-auto py-3">
+            <div>
+              {suggestedQuestions.map((question, index) => (
+                <button
+                  key={index}
+                  className="mr-1 mt-1  whitespace-nowrap rounded-xl py-2 px-3 text-sm   bg-zinc-100 hover:bg-zinc-200"
+                >
+                  {question}
+                </button>
+              ))}
+            </div>
+          </div>
           <div className="flex-grow space-y-6">
             <div className="flex">
               <span className="mr-3">

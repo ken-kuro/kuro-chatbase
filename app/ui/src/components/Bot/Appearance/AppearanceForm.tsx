@@ -1,16 +1,17 @@
-import { Divider, Form, FormInstance, notification } from "antd";
-import { AppearanceType } from "./types";
-import { DbColorPicker } from "../../Common/DbColorPicker";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import {Divider, Form, FormInstance, notification} from "antd";
+import {AppearanceType} from "./types";
+import {DbColorPicker} from "../../Common/DbColorPicker";
+import {useMutation, useQueryClient} from "@tanstack/react-query";
+import {useParams} from "react-router-dom";
 import api from "../../../services/api";
 import axios from "axios";
+
 type Props = AppearanceType;
 
 export const AppearanceForm = ({
-  initialData,
-  form,
-}: {
+                                 initialData,
+                                 form,
+                               }: {
   initialData: Props;
   form: FormInstance;
 }) => {
@@ -52,7 +53,7 @@ export const AppearanceForm = ({
 
   const client = useQueryClient();
 
-  const { mutate: updateAppearance, isLoading: isUpdatingAppearance } =
+  const {mutate: updateAppearance, isLoading: isUpdatingAppearance} =
     useMutation(onFinish, {
       onSuccess: () => {
         client.invalidateQueries(["getBotAppearance", params.id]);
@@ -117,6 +118,16 @@ export const AppearanceForm = ({
         <input
           type="text"
           className="mt-1 block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+        />
+      </Form.Item>
+
+      <Form.Item
+        label="Suggested Messages"
+        name="suggested_messages"
+      >
+        <textarea
+          className="mt-1 block w-full h-32 shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
+          placeholder="Type your suggested messages here, separated by a line break"
         />
       </Form.Item>
 
