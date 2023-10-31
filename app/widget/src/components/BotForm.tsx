@@ -30,21 +30,7 @@ export default function BotForm({botStyle,}: { botStyle: BotStyle }) {
   );
 
   const suggestedQuestions = [
-    "What is your product's pricing?",
-    "How can I contact support?",
-    "What is your product's pricing?",
-    "How can I contact support?",
-    "Tell me more about your services",
-    "What is your product's pricing?",
-    "How can I contact support?",
-    "Tell me more about your services",
-    "What is your product's pricing?",
-    "How can I contact support?",
-    "Tell me more about your services",
-    "What is your product's pricing?",
-    "How can I contact support?",
-    "Tell me more about your services",
-    "Tell me more about your services",
+    "What do you know?",
   ];
 
   const handleSuggestionClick = async (suggestion: string) => {

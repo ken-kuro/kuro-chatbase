@@ -23,7 +23,7 @@ export default function BotDSRoot() {
       };
     },
     {
-      refetchInterval: 1000,
+      refetchInterval: 10000,
     }
   );
 

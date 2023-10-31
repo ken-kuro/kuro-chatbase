@@ -166,24 +166,11 @@ export const BotForm = ({
                 </p>
                 <p className="ant-upload-hint">
                   Support is available for a single or bulk upload of up to 10
-                  files. Please note that file upload is in beta, so if you
-                  encounter any issues, kindly report them.
+                  files.
                 </p>
               </div>
             </Upload.Dragger>
           </Form.Item>
-          <p className="text-sm text-gray-500">
-            If you find any issues, please report them on{" "}
-            <a
-              href={`https://github.com/ken-kuro/kurobase/issues/new?title=file%20upload%20issue&type=bug&labels=bug`}
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              GitHub
-            </a>
-            .
-          </p>
         </>
       ),
     },
@@ -242,19 +229,6 @@ export const BotForm = ({
               className=" block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
             />
           </Form.Item>
-
-          <p className="text-sm text-gray-500">
-            If you find any issues, please report them on{" "}
-            <a
-              href="https://github.com/ken-kuro/kurobase/issues/new?title=Crawler%20issue&labels=bug"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              GitHub
-            </a>
-            .
-          </p>
         </>
       ),
     },
@@ -311,19 +285,6 @@ export const BotForm = ({
               </Form.Item>
             </Col>
           </Row>
-
-          <p className="text-sm text-gray-500">
-            If you find any issues, please report them on{" "}
-            <a
-              href="https://github.com/ken-kuro/kurobase/issues/new?title=Github%20issue&labels=bug"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              GitHub
-            </a>
-            .
-          </p>
         </>
       ),
     },
@@ -355,19 +316,6 @@ export const BotForm = ({
               className=" block w-full shadow-sm sm:text-sm focus:ring-indigo-500 focus:border-indigo-500 border-gray-300 rounded-md"
             />
           </Form.Item>
-
-          <p className="text-sm text-gray-500">
-            If you find any issues, please report them on{" "}
-            <a
-              href="https://github.com/ken-kuro/kurobase/issues/new?title=Github%20issue&labels=bug"
-              target="_blank"
-              rel="noreferrer"
-              className="font-medium text-indigo-600 hover:text-indigo-500"
-            >
-              GitHub
-            </a>
-            .
-          </p>
         </>
       ),
     },
