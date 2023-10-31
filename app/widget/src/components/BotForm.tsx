@@ -29,9 +29,7 @@ export default function BotForm({botStyle,}: { botStyle: BotStyle }) {
     }
   );
 
-  const suggestedQuestions = [
-    "What do you know?",
-  ];
+  const suggestedQuestions = botStyle?.data?.suggested_messages?.split('\n') || [];
 
   const handleSuggestionClick = async (suggestion: string) => {
     form.reset();
