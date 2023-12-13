@@ -5,6 +5,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext";
 import { useSettings } from "../../hooks/useSettings";
+import {APP_NAME} from "../../utils/config.ts";
 interface User {
   user_id: number;
   username: string;
@@ -62,8 +63,8 @@ export const AuthLogin = () => {
         <div className="mx-auto w-full max-w-sm lg:w-96">
           <div>
             <div className="focus:outline-none focus-visible:ring-2 focus-visible:ring-pink-700 flex items-center">
-              <img className="h-8 w-auto" src="/logo.png" alt="Kurobase" />
-              <span className="text-lg font-bold">Kurobase</span>
+              <img className="h-8 w-auto" src="/logo.png" alt={APP_NAME} />
+              <span className="text-lg font-bold">{APP_NAME}</span>
               <span className="inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800 ml-2">
                 {/* @ts-ignore */}
                 {`v${__APP_VERSION__}`}

@@ -4,6 +4,7 @@ import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu } from "@headlessui/react";
 import Avatar from "../components/Common/Avatar";
+import {APP_NAME} from "../utils/config.ts";
 
 //@ts-ignore
 function classNames(...classes) {
@@ -39,9 +40,9 @@ export default function DashboardLayout({
                     <img
                       className="h-8 w-auto"
                       src="/logo.png"
-                      alt="Kurobase"
+                      alt={APP_NAME}
                     />
-                    <span className="ml-1 text-xl font-bold">Kurobase</span>
+                    <span className="ml-1 text-xl font-bold">{APP_NAME}</span>
                     <span className="inline-block flex-shrink-0 rounded-full bg-green-100 px-2 py-0.5 text-xs font-medium text-green-800 ml-2">
                       {/* @ts-ignore */}
                       {`v${__APP_VERSION__}`}
